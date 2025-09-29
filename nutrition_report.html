@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>栄養情報レポート</title>
+    <style>
+        body { font-family: 'Hiragino Sans', 'Yu Gothic', sans-serif; margin: 20px; background-color: #f5f5f5; }
+        .container { max-width: 1000px; margin: 0 auto; background-color: white; padding: 20px; border-radius: 10px; box-shadow: 0 2px 10px rgba(0,0,0,0.1); }
+        h1 { color: #2c3e50; text-align: center; border-bottom: 3px solid #3498db; padding-bottom: 10px; }
+        h2 { color: #34495e; margin-top: 30px; }
+        .meal-title { font-size: 1.2em; color: #e74c3c; font-weight: bold; text-align: center; margin: 20px 0; }
+        table { width: 100%; border-collapse: collapse; margin: 20px 0; }
+        th, td { padding: 12px; text-align: left; border: 1px solid #ddd; }
+        th { background-color: #3498db; color: white; font-weight: bold; }
+        tr:nth-child(even) { background-color: #f2f2f2; }
+        tr:hover { background-color: #e8f4fd; }
+        .food-name { font-weight: bold; color: #2c3e50; }
+        .quantity { color: #e67e22; font-weight: bold; }
+        .confidence { color: #27ae60; }
+        .nutrient-value { text-align: right; font-weight: bold; }
+        .total-row { background-color: #ecf0f1 !important; font-weight: bold; }
+        .total-table th { background-color: #e74c3c; }
+        .status-error { color: #e74c3c; font-style: italic; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>栄養情報レポート</h1>
+        <div class="meal-title">料理名: エビとブロッコリーの炒め物</div>
+        
+        <h2>各食材の栄養情報</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>食材名</th>
+                    <th>推定量</th>
+                    <th>信頼度</th>
+                    <th>エネルギー</th>
+                    <th>タンパク質</th>
+                    <th>脂質</th>
+                    <th>炭水化物</th>
+                    <th>食物繊維</th>
+                    <th>ナトリウム</th>
+                    <th>ステータス</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td class="food-name">エビ</td>
+                    <td class="quantity">150g</td>
+                    <td class="confidence">0.9</td>
+                    <td class="nutrient-value">70.5kcal</td>
+                    <td class="nutrient-value">17.64g</td>
+                    <td class="nutrient-value">0.0g</td>
+                    <td class="nutrient-value">0.0g</td>
+                    <td class="nutrient-value">0.0g</td>
+                    <td class="nutrient-value">741.0mg</td>
+                    <td>✓ 取得済み</td>
+                </tr>
+                <tr>
+                    <td class="food-name">ブロッコリー</td>
+                    <td class="quantity">100g</td>
+                    <td class="confidence">0.85</td>
+                    <td class="nutrient-value">24.0kcal</td>
+                    <td class="nutrient-value">2.35g</td>
+                    <td class="nutrient-value">0.0g</td>
+                    <td class="nutrient-value">4.71g</td>
+                    <td class="nutrient-value">3.5g</td>
+                    <td class="nutrient-value">24.0mg</td>
+                    <td>✓ 取得済み</td>
+                </tr>
+                <tr>
+                    <td class="food-name">ズッキーニ</td>
+                    <td class="quantity">50g</td>
+                    <td class="confidence">0.7</td>
+                    <td class="nutrient-value">10.5kcal</td>
+                    <td class="nutrient-value">0.53g</td>
+                    <td class="nutrient-value">0.0g</td>
+                    <td class="nutrient-value">2.1g</td>
+                    <td class="nutrient-value">0.55g</td>
+                    <td class="nutrient-value">0.0mg</td>
+                    <td>✓ 取得済み</td>
+                </tr>
+                <tr>
+                    <td class="food-name">調味料</td>
+                    <td class="quantity">10g</td>
+                    <td class="confidence">0.6</td>
+                    <td class="nutrient-value">0.0kcal</td>
+                    <td class="nutrient-value">0.0g</td>
+                    <td class="nutrient-value">0.0g</td>
+                    <td class="nutrient-value">0.0g</td>
+                    <td class="nutrient-value">-</td>
+                    <td class="nutrient-value">875.0mg</td>
+                    <td>✓ 取得済み</td>
+                </tr>
+
+            </tbody>
+        </table>
+
+
+        <h2>料理全体の栄養合計</h2>
+        <table class="total-table">
+            <thead>
+                <tr>
+                    <th>栄養素</th>
+                    <th>合計値</th>
+                    <th>単位</th>
+                </tr>
+            </thead>
+            <tbody>
+
+                <tr class="total-row">
+                    <td>トランス脂肪酸</td>
+                    <td class="nutrient-value">0.0</td>
+                    <td>g</td>
+                </tr>
+                <tr class="total-row">
+                    <td>食物繊維</td>
+                    <td class="nutrient-value">4.05</td>
+                    <td>g</td>
+                </tr>
+                <tr class="total-row">
+                    <td>タンパク質</td>
+                    <td class="nutrient-value">20.52</td>
+                    <td>g</td>
+                </tr>
+                <tr class="total-row">
+                    <td>ナトリウム</td>
+                    <td class="nutrient-value">1640.0</td>
+                    <td>mg</td>
+                </tr>
+                <tr class="total-row">
+                    <td>炭水化物</td>
+                    <td class="nutrient-value">6.81</td>
+                    <td>g</td>
+                </tr>
+                <tr class="total-row">
+                    <td>エネルギー</td>
+                    <td class="nutrient-value">105.0</td>
+                    <td>kcal</td>
+                </tr>
+                <tr class="total-row">
+                    <td>脂質</td>
+                    <td class="nutrient-value">0.0</td>
+                    <td>g</td>
+                </tr>
+                <tr class="total-row">
+                    <td>飽和脂肪酸</td>
+                    <td class="nutrient-value">0.0</td>
+                    <td>g</td>
+                </tr>
+
+            </tbody>
+        </table>
+
+
+    </div>
+</body>
+</html>
