@@ -1,4 +1,6 @@
 # vision_infer.py
+import json
+import base64
 from openai import OpenAI
 client = OpenAI()
 
@@ -21,4 +23,18 @@ def analyze_image(image_url: str) -> dict:
         temperature=0
     )
     # レスポンスからJSON文字列を抽出→dict化（バリデーションはpydanticで）
-    return parsed_json
+    import json
+    content = resp.choices[0].message.content
+    
+    if content.startswith("```json"):
+        content = content[7:]  # Remove ```json
+    if content.startswith("```"):
+        content = content[3:]   # Remove ```
+    if content.endswith("```"):
+        content = content[:-3]  # Remove trailing ```
+    
+    content = content.strip()
+    if not content:
+        raise ValueError("Empty response from OpenAI API")
+    
+    return json.loads(content)
